@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Journal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Mood Journal</h1>
+                <button id="darkModeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <div class="toggle-ball"></div>
+                </button>
+            </div>
+            <div class="date-weather">
+                <div class="current-date" id="currentDate"></div>
+                <div class="weather-info" id="weather"></div>
+            </div>
+        </header>
+
+        <main>
+            <form id="moodForm">
+                <section class="mood-section">
+                    <h2>How are you feeling today?</h2>
+                    <div class="mood-selector">
+                        <label class="mood-option" data-mood="happy">
+                            <input type="radio" name="mood" value="happy" hidden>
+                            <div class="mood-icon">😊</div>
+                            <span>Happy</span>
+                        </label>
+                        <label class="mood-option" data-mood="sad">
+                            <input type="radio" name="mood" value="sad" hidden>
+                            <div class="mood-icon">😔</div>
+                            <span>Sad</span>
+                        </label>
+                        <label class="mood-option" data-mood="angry">
+                            <input type="radio" name="mood" value="angry" hidden>
+                            <div class="mood-icon">😡</div>
+                            <span>Angry</span>
+                        </label>
+                        <label class="mood-option" data-mood="excited">
+                            <input type="radio" name="mood" value="excited" hidden>
+                            <div class="mood-icon">🤩</div>
+                            <span>Excited</span>
+                        </label>
+                        <label class="mood-option" data-mood="neutral">
+                            <input type="radio" name="mood" value="neutral" hidden>
+                            <div class="mood-icon">😐</div>
+                            <span>Neutral</span>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="notes-section">
+                    <h2>Add a note</h2>
+                    <textarea placeholder="Write about your day..." id="note"></textarea>
+                    <button type="submit" class="btn">Save Entry</button>
+                </section>
+            </form>
+
+            <section class="view-section">
+                <div class="calendar-panel">
+                    <div class="month-navigation">
+                        <button id="prev-month" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+                        <h3 id="current-month"></h3>
+                        <button id="next-month" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div class="calendar-days" id="calendar-days"></div>
+                </div>
+                <div class="view-header">
+                    <h2>Past Entries</h2>
+                    <div class="entries-list" id="entries"></div>
+                </div>
+                <div class="view-controls">
+                    <button id="exportCSV" class="btn btn-secondary">Export CSV</button>
+                    <button id="exportPDF" class="btn btn-secondary">Export PDF</button>
+                    <button id="clearEntries" class="btn btn-secondary">Clear All</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

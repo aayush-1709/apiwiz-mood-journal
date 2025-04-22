@@ -1,0 +1,325 @@
+
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --text-color: #2d3436;
+    --background-color: #f9f9f9;
+    --card-color: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --happy-color: #fdcb6e;
+    --excited-color: #ff7675;
+    --neutral-color: #81ecec;
+    --sad-color: #74b9ff;
+    --angry-color: #e17055;
+    --transition-speed: 0.3s;
+}
+
+.dark {
+    --text-color: #f5f6fa;
+    --background-color: #2d3436;
+    --card-color: #353b48;
+    --border-color: #636e72;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.theme-toggle {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.theme-toggle i {
+    color: #fff;
+    font-size: 14px;
+    z-index: 1;
+}
+
+.toggle-ball {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    left: 3px;
+    transition: transform var(--transition-speed);
+}
+
+.dark .toggle-ball {
+    transform: translateX(30px);
+}
+
+.date-weather {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.current-date {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mood-section {
+    background-color: var(--card-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.mood-selector {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.mood-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+    width: calc(20% - 12px);
+    border: 2px solid transparent;
+}
+
+.mood-option:hover {
+    transform: translateY(-5px);
+}
+
+.mood-option.selected {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.mood-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.mood-option[data-mood="happy"] {
+    background-color: var(--happy-color);
+}
+
+.mood-option[data-mood="excited"] {
+    background-color: var(--excited-color);
+}
+
+.mood-option[data-mood="neutral"] {
+    background-color: var(--neutral-color);
+}
+
+.mood-option[data-mood="sad"] {
+    background-color: var(--sad-color);
+}
+
+.mood-option[data-mood="angry"] {
+    background-color: var(--angry-color);
+}
+
+.notes-section {
+    background-color: var(--card-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    resize: none;
+    font-family: inherit;
+    margin-bottom: 20px;
+    background-color: var(--card-color);
+    color: var(--text-color);
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color var(--transition-speed);
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.view-section {
+    background-color: var(--card-color);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.view-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.entries-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.entry {
+    background-color: var(--card-color);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.view-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.calendar-panel {
+    background: var(--card-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.month-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.calendar-day:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.calendar-day.has-entry {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.calendar-day.selected {
+    box-shadow: 0 0 0 2px var(--text-color);
+}
+
+.entries-panel {
+    background: var(--card-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
